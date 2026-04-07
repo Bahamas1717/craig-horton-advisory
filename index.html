@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Craig Horton Advisory | AI Transformation Strategy</title>
+<style>
+  :root {
+    --navy: #1B3A5C;
+    --dark-navy: #122840;
+    --orange: #C47A2B;
+    --cream: #F5F4F0;
+    --white: #FFFFFF;
+    --w90: rgba(255,255,255,0.9);
+    --w75: rgba(255,255,255,0.75);
+    --w45: rgba(255,255,255,0.45);
+    --w08: rgba(255,255,255,0.08);
+    --w05: rgba(255,255,255,0.05);
+    --n60: rgba(27,58,92,0.6);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: Tahoma,"Segoe UI",Geneva,Verdana,sans-serif; background:var(--cream); color:var(--navy); -webkit-font-smoothing:antialiased; }
+
+  /* === NAV === */
+  .nav { position:sticky; top:0; z-index:100; background:rgba(27,58,92,0.97); padding:0 48px; backdrop-filter:blur(8px); }
+  .nav-inner { max-width:960px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; }
+  .nav-brand { padding:16px 0; font-weight:700; font-size:14px; }
+  .nav-brand span:first-child { color:var(--white); }
+  .nav-brand span:last-child { color:var(--orange); }
+  .nav-links { display:flex; gap:0; overflow-x:auto; }
+  .nav-links a { padding:18px 12px; text-decoration:none; font-size:11px; font-weight:600; color:var(--white); border-bottom:2px solid transparent; white-space:nowrap; transition:color .2s,border-color .2s; }
+  .nav-links a:hover,.nav-links a.active { color:var(--orange); border-bottom-color:var(--orange); }
+
+  /* === COMMON === */
+  .s-inner { max-width:960px; margin:0 auto; }
+  .eyebrow { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--orange); font-weight:700; margin-bottom:16px; }
+  .eyebrow-muted { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,0.7); font-weight:700; margin-bottom:16px; }
+  .eyebrow-light-muted { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--n60); font-weight:700; margin-bottom:16px; }
+
+  /* === SECTIONS === */
+  .s-dark { background:var(--navy); padding:96px 48px; }
+  .s-darker { background:var(--dark-navy); padding:96px 48px; }
+  .s-light { background:var(--white); padding:96px 48px; }
+  .s-orange { background:var(--orange); padding:60px 48px; }
+
+  /* Dark headings - NO grey, only white */
+  .s-dark h2,.s-darker h2 { font-size:32px; font-weight:700; color:var(--white); line-height:1.25; margin-bottom:20px; }
+  .s-dark .lead,.s-darker .lead { font-size:17px; color:var(--white); line-height:1.8; font-family:Georgia,serif; max-width:700px; margin-bottom:48px; }
+  /* Light headings */
+  .s-light h2 { font-size:32px; font-weight:700; color:var(--navy); line-height:1.25; margin-bottom:20px; }
+  .s-light .lead { font-size:17px; color:var(--navy); line-height:1.8; font-family:Georgia,serif; max-width:700px; margin-bottom:48px; }
+
+  /* === CARDS === */
+  .cards { display:flex; gap:20px; flex-wrap:wrap; }
+  .cc { background:var(--cream); padding:36px 32px; flex:1 1 280px; min-width:280px; }
+  .cc-hl { border-top:3px solid var(--orange); }
+  .cc h4 { color:var(--navy); font-size:16px; font-weight:700; margin-bottom:12px; }
+  .cc p { font-size:15px; color:var(--navy); line-height:1.7; font-family:Georgia,serif; opacity:.75; }
+  .cc h3 { color:var(--navy); font-size:20px; font-weight:700; margin:0 0 4px; }
+  .cc .period { color:var(--n60); font-size:13px; margin-bottom:20px; }
+  .cc ul { list-style:none; padding:0; }
+  .cc ul li { margin-bottom:12px; font-size:14px; line-height:1.6; color:var(--navy); font-family:Georgia,serif; padding-left:18px; position:relative; opacity:.75; }
+  .cc ul li::before { content:"\2022"; position:absolute; left:0; color:var(--orange); }
+
+  .dc { background:var(--w05); padding:28px; flex:1 1 280px; min-width:280px; border:1px solid var(--w08); }
+  .dc h3 { color:var(--orange); font-size:16px; font-weight:700; margin-bottom:12px; }
+  .dc p { font-size:14px; color:var(--white); line-height:1.7; font-family:Georgia,serif; }
+  .dc .sb { background:var(--w08); padding:14px; margin-bottom:10px; }
+  .dc .sb:last-child { margin-bottom:0; }
+  .dc .sl-o { font-size:10px; font-weight:700; color:var(--orange); letter-spacing:1px; text-transform:uppercase; margin-bottom:6px; }
+  .dc .sl-m { font-size:10px; font-weight:700; color:var(--white); letter-spacing:1px; text-transform:uppercase; margin-bottom:6px; }
+  .dc .st { font-size:13px; color:var(--white); font-family:Georgia,serif; line-height:1.6; }
+
+  /* === STATS === */
+  .stats { display:flex; gap:40px; flex-wrap:wrap; }
+  .stat .sn { font-size:36px; font-weight:700; color:var(--orange); }
+  .stat .sl { font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-top:8px; }
+  .stat .sl-d { color:rgba(255,255,255,0.85); }
+  .stat .sl-l { color:var(--n60); }
+  .stat { flex:1 1 200px; min-width:180px; }
+
+  /* === TABLE === */
+  .ctbl { width:100%; border-collapse:collapse; font-size:13px; }
+  .ctbl th { padding:12px 16px; text-align:left; font-weight:700; font-size:11px; color:rgba(255,255,255,0.7); letter-spacing:1px; text-transform:uppercase; border-bottom:1px solid var(--w08); }
+  .ctbl td { padding:12px 16px; border-bottom:1px solid var(--w08); }
+  .ctbl td:first-child { color:var(--white); font-weight:600; }
+  .ctbl td:nth-child(2) { color:var(--orange); }
+  .ctbl td:nth-child(n+3) { color:var(--white); }
+
+  /* === ACCORDION === */
+  .acc { margin-bottom:12px; overflow:hidden; }
+  .acc-l { background:var(--cream); }
+  .acc-d { background:var(--w05); }
+  .acc-btn { width:100%; padding:20px 28px; background:transparent; border:none; cursor:pointer; display:flex; align-items:center; justify-content:space-between; font-family:Tahoma,sans-serif; font-size:15px; font-weight:600; text-align:left; transition:background .15s; }
+  .acc-btn-l { color:var(--navy); }
+  .acc-btn-l:hover { background:#EBE9E4; }
+  .acc-btn-d { color:var(--orange); }
+  .acc-btn-d:hover { background:var(--w08); }
+  .acc-btn .tg { flex-shrink:0; margin-left:16px; font-size:20px; }
+  .acc-btn-l .tg { color:var(--n60); }
+  .acc-btn-d .tg { color:var(--white); }
+  .acc-body { display:none; padding:4px 28px 24px; font-family:Georgia,serif; font-size:15px; line-height:1.8; }
+  .acc-body-l { color:var(--navy); }
+  .acc-body-d { color:var(--white); }
+  .acc-body.open { display:block; }
+  .acc-body p { margin-bottom:14px; }
+  .acc-body p:last-child { margin-bottom:0; }
+  .rf { color:var(--orange); font-weight:700; margin-top:16px; font-family:Tahoma,sans-serif; font-size:14px; }
+
+  /* === PILLAR === */
+  .pillars { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:32px; }
+  .pill { flex:1 1 200px; min-width:200px; background:var(--w05); padding:24px; border:1px solid var(--w08); text-align:center; }
+  .pill .pp { font-size:40px; font-weight:700; color:var(--orange); }
+  .pill .pn { font-size:14px; font-weight:700; color:var(--white); margin-top:8px; }
+  .pill .pd { font-size:12px; color:var(--white); margin-top:6px; line-height:1.5; font-family:Georgia,serif; }
+
+  /* === LAYER === */
+  .layer { display:flex; gap:20px; margin-bottom:20px; align-items:flex-start; }
+  .layer .ln { font-size:24px; font-weight:700; color:var(--orange); width:36px; flex-shrink:0; text-align:center; }
+  .layer h4 { color:var(--white); font-size:15px; font-weight:700; margin-bottom:4px; }
+  .layer p { font-size:14px; color:var(--white); line-height:1.6; font-family:Georgia,serif; }
+
+  /* Light layer variant */
+  .layer-light h4 { color:var(--navy); }
+  .layer-light p { color:var(--navy); opacity:.75; }
+
+  /* === NEWSLETTER MOCK === */
+  .nl-row { display:flex; gap:28px; flex-wrap:wrap; align-items:flex-start; }
+  .nl-mock { flex:1 1 300px; min-width:280px; background:var(--white); border:1px solid #ddd; padding:32px; }
+  .nl-mock .nh { color:var(--navy); font-size:16px; font-weight:700; margin-bottom:4px; }
+  .nl-mock .ns { font-size:10px; color:var(--n60); margin-bottom:16px; }
+  .nl-mock .nr { height:2px; background:var(--orange); margin-bottom:16px; }
+  .nl-mock .nsl { font-size:10px; color:var(--orange); font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:8px; }
+  .nl-mock .nt { font-size:12px; color:var(--navy); line-height:1.6; font-family:Georgia,serif; margin-bottom:16px; opacity:.7; }
+  .nl-mock .nsig { border-left:3px solid var(--orange); padding-left:12px; margin-bottom:16px; }
+  .nl-desc { flex:1 1 300px; min-width:280px; }
+  .nl-desc h4 { color:var(--navy); font-size:16px; font-weight:700; margin-bottom:12px; }
+  .nl-desc p { font-size:15px; color:var(--navy); opacity:.75; line-height:1.7; font-family:Georgia,serif; margin-bottom:12px; }
+  .nl-tag { display:inline-block; background:var(--cream); padding:6px 14px; font-size:11px; font-weight:700; color:var(--orange); letter-spacing:1px; text-transform:uppercase; margin-right:8px; margin-bottom:8px; }
+
+  /* light newsletter mock variant for dark sections */
+  .nl-mock-dark { background:var(--w05); border:1px solid var(--w08); }
+  .nl-mock-dark .nh { color:var(--white); }
+  .nl-mock-dark .ns { color:var(--white); }
+  .nl-mock-dark .nt { color:var(--white); opacity:1; }
+
+  /* === CRED === */
+  .cred-row { display:flex; gap:20px; flex-wrap:wrap; margin-bottom:40px; }
+  .cred { flex:1 1 300px; min-width:280px; background:var(--w05); padding:28px; }
+  .cred-hl { border:2px solid var(--orange); }
+  .cred-nm { border:1px solid var(--w08); }
+  .cred .cl { font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+  .cred h4 { color:var(--white); font-size:17px; margin-bottom:8px; }
+  .cred .cs { font-size:14px; color:var(--white); font-family:Georgia,serif; margin-bottom:4px; }
+  .cred .cd { font-size:14px; color:var(--white); font-family:Georgia,serif; line-height:1.7; }
+
+  .mini { display:flex; gap:20px; flex-wrap:wrap; margin-bottom:40px; }
+  .mc { flex:1 1 160px; min-width:160px; background:var(--w05); padding:20px; text-align:center; border:1px solid var(--w08); }
+  .mc .mv { font-size:28px; font-weight:700; color:var(--orange); }
+  .mc .ml { font-size:11px; color:var(--white); margin-top:6px; text-transform:uppercase; letter-spacing:.5px; }
+
+  /* === QUESTION === */
+  .qc { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--n60); font-weight:700; margin-bottom:16px; }
+  .qi { background:var(--cream); padding:20px 28px; margin-bottom:8px; font-size:16px; color:var(--navy); line-height:1.6; font-family:Georgia,serif; }
+  .qi-o { border-left:3px solid var(--orange); }
+  .qi-n { border-left:3px solid var(--navy); }
+  .qi-m { border-left:3px solid var(--n60); }
+
+  /* === RESILIENCE === */
+  .res { background:var(--w05); padding:28px; border-left:3px solid var(--orange); }
+  .res h4 { color:var(--orange); font-size:14px; font-weight:700; margin-bottom:10px; }
+  .res p { font-size:15px; color:var(--white); line-height:1.8; font-family:Georgia,serif; }
+
+  /* === QUOTE === */
+  .qb { border-left:3px solid var(--orange); padding-left:28px; }
+  .qb p { font-size:20px; color:var(--white); line-height:1.7; font-family:Georgia,serif; max-width:700px; }
+
+  /* === FOOTER === */
+  .cta { background:var(--orange); padding:60px 48px; text-align:center; }
+  .cta h3 { font-size:24px; color:var(--white); font-weight:700; margin-bottom:8px; }
+  .cta p { font-size:14px; color:rgba(255,255,255,.85); margin-bottom:4px; }
+  .cta .cq { font-size:16px; color:var(--white); font-weight:600; font-family:Georgia,serif; line-height:1.6; margin-top:24px; }
+  .footer { background:var(--dark-navy); padding:32px 48px; text-align:center; }
+  .footer p { font-size:12px; color:var(--white); }
+
+  /* === SECTION DIVIDER === */
+  .sdiv { font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--orange); font-weight:700; text-align:center; padding:20px 48px; background:var(--dark-navy); }
+
+  /* === RESPONSIVE === */
+  html { scroll-behavior:smooth; }
+  .hero-card:hover { background:var(--w08) !important; }
+
+  @media(max-width:768px) {
+    .nav,.s-dark,.s-darker,.s-light,.s-orange,.cta,.footer,.sdiv { padding-left:20px; padding-right:20px; }
+    .hero-section { padding:80px 20px 60px !important; }
+    .hero-section h1 { font-size:32px !important; }
+    .s-light h2,.s-dark h2,.s-darker h2 { font-size:26px; }
+    .nav-links a { padding:16px 8px; font-size:10px; }
+    .stat .sn { font-size:28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== NAV ====== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand"><span>Craig Horton</span> <span>Advisory</span></div>
+    <div class="nav-links">
+      <a href="#advisory">Advisory</a>
+      <a href="#brief">The Brief</a>
+      <a href="#podcast">The Podcast</a>
+      <a href="#bvf">The BVF</a>
+      <a href="#blueprint">The Blueprint</a>
+      <a href="#leaseweb">Leaseweb GTM</a>
+      <a href="#credentials">About Craig</a>
+      <a href="#questions">Questions</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ====== HERO ====== -->
+<section class="hero-section" style="background:var(--dark-navy); padding:120px 48px 80px;">
+  <div class="s-inner">
+    <div class="eyebrow">Craig Horton Advisory</div>
+    <h1 style="font-size:48px; font-weight:700; color:var(--white); line-height:1.15; max-width:700px; margin-bottom:20px;">
+      AI transformation strategy for enterprises that need to move beyond pilot.
+    </h1>
+    <p style="font-size:18px; color:var(--white); font-family:Georgia,serif; line-height:1.7; max-width:560px; margin-bottom:40px;">
+      20 years of enterprise technology business development. Proprietary frameworks for diagnosing why AI initiatives fail and what to do about it. A weekly intelligence brief trusted by transformation leaders.
+    </p>
+    <div style="display:flex; gap:20px; flex-wrap:wrap; margin-top:48px;">
+      <a href="https://bvf-app.vercel.app" target="_blank" class="hero-card" style="flex:1 1 260px; min-width:260px; background:var(--w05); padding:28px; border:1px solid var(--w08); border-top:3px solid var(--orange); text-decoration:none; cursor:pointer; transition:background .2s;">
+        <div style="font-size:11px; font-weight:700; color:var(--orange); letter-spacing:2px; text-transform:uppercase; margin-bottom:10px;">Framework</div>
+        <div style="font-size:18px; font-weight:700; color:var(--white); margin-bottom:8px;">The AI Business Value Framework</div>
+        <div style="font-size:14px; color:var(--white); font-family:Georgia,serif; line-height:1.6;">Diagnose which AI initiatives deserve investment. Four pillars, one score: Accelerate, Fix, or Stop.</div>
+      </a>
+      <a href="https://brief.craighortonadvisory.com" target="_blank" class="hero-card" style="flex:1 1 260px; min-width:260px; background:var(--w05); padding:28px; border:1px solid var(--w08); border-top:3px solid var(--orange); text-decoration:none; cursor:pointer; transition:background .2s;">
+        <div style="font-size:11px; font-weight:700; color:var(--orange); letter-spacing:2px; text-transform:uppercase; margin-bottom:10px;">Intelligence</div>
+        <div style="font-size:18px; font-weight:700; color:var(--white); margin-bottom:8px;">The Transformation Brief</div>
+        <div style="font-size:14px; color:var(--white); font-family:Georgia,serif; line-height:1.6;">Weekly AI intelligence for transformation leaders. Scoring, analysis, and a reframing question that stops the room.</div>
+      </a>
+      <a href="#blueprint" class="hero-card" style="flex:1 1 260px; min-width:260px; background:var(--w05); padding:28px; border:1px solid var(--w08); border-top:3px solid var(--orange); text-decoration:none; cursor:pointer; transition:background .2s;">
+        <div style="font-size:11px; font-weight:700; color:var(--orange); letter-spacing:2px; text-transform:uppercase; margin-bottom:10px;">Methodology</div>
+        <div style="font-size:18px; font-weight:700; color:var(--white); margin-bottom:8px;">The AI Readiness Blueprint</div>
+        <div style="font-size:14px; color:var(--white); font-family:Georgia,serif; line-height:1.6;">Six layers from honest diagnosis to sustained momentum. Starting where most frameworks are afraid to.</div>
+      </a>
+      <a href="https://open.spotify.com/show/4iJwkW4zx7q6QeYiw5CFdt" target="_blank" class="hero-card" style="flex:1 1 260px; min-width:260px; background:var(--w05); padding:28px; border:1px solid var(--w08); border-top:3px solid var(--orange); text-decoration:none; cursor:pointer; transition:background .2s;">
+        <div style="font-size:11px; font-weight:700; color:var(--orange); letter-spacing:2px; text-transform:uppercase; margin-bottom:10px;">Podcast</div>
+        <div style="font-size:18px; font-weight:700; color:var(--white); margin-bottom:8px;">BVF Executive Briefings</div>
+        <div style="font-size:14px; color:var(--white); font-family:Georgia,serif; line-height:1.6;">Five-minute C-suite briefings on Spotify. One role per episode, benchmarked insights, no fluff.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ====== THESIS ====== -->
+<div class="s-orange">
+  <div class="s-inner">
+    <p style="font-size:22px; color:var(--white); line-height:1.5; max-width:700px;">
+      "AI transformation is not a technology problem. It is a management and structural problem. Until leadership addresses the underlying Bureaucracy Debt, technology investment will continue to yield diminishing returns."
+    </p>
+  </div>
+</div>
+
+<!-- ====== ADVISORY OVERVIEW ====== -->
+<section id="advisory" class="s-light">
+  <div class="s-inner">
+    <div class="eyebrow">Advisory practice</div>
+    <h2>Three tools that change the conversation.</h2>
+    <p class="lead">Most AI advisory starts with the technology. Mine starts with the organisation. These three proprietary frameworks work together to diagnose, quantify, and resolve the structural barriers that prevent AI from delivering value at scale.</p>
+
+    <div class="cards">
+      <div class="cc cc-hl">
+        <h4>The AI Business Value Framework</h4>
+        <p>A diagnostic tool that scores every AI initiative across four pillars and produces two outputs: an Organisational Drag Cost (the Euro value at risk) and a Decision Confidence Score (Accelerate, Fix, or Stop). Built on McKinsey, Gartner, BCG, and Forrester benchmarks.</p>
+      </div>
+      <div class="cc cc-hl">
+        <h4>The AI Readiness Blueprint</h4>
+        <p>A five-layer methodology for preparing organisations to absorb AI at scale. Starts with Layer Zero (the trust architecture most frameworks skip) and works through quantification, coalition building, structural redesign, individual adoption, and sustained momentum.</p>
+      </div>
+      <div class="cc cc-hl">
+        <h4>The Transformation Brief</h4>
+        <p>A weekly intelligence newsletter connecting AI developments to enterprise transformation strategy. Each edition scores articles against a proprietary relevance framework, filters for enterprise applicability, and ends with a reframing question that stops the room.</p>
+      </div>
+    </div>
+
+    <div class="stats" style="margin-top:64px;">
+      <div class="stat"><div class="sn">95%</div><div class="sl sl-l">GenAI pilots fail to deliver P&L impact (MIT)</div></div>
+      <div class="stat"><div class="sn">74%</div><div class="sl sl-l">Of companies see no tangible AI value (BCG)</div></div>
+      <div class="stat"><div class="sn">2.6x</div><div class="sl sl-l">More likely to succeed with human-centred approach (EY/Oxford)</div></div>
+      <div class="stat"><div class="sn">6x</div><div class="sl sl-l">More likely to succeed with excellent change management (Prosci)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== THE TRANSFORMATION BRIEF ====== -->
+<section id="brief" class="s-dark">
+  <div class="s-inner">
+    <div class="eyebrow">The Transformation Brief</div>
+    <h2>Weekly intelligence for transformation leaders.</h2>
+    <p class="lead">A weekly newsletter connecting AI developments to enterprise transformation strategy. Published at brief.craighortonadvisory.com, each edition is built on a proprietary scoring framework that filters signal from noise.</p>
+
+    <div class="nl-row">
+      <div class="nl-mock nl-mock-dark">
+        <div class="nh">The Transformation Brief</div>
+        <div class="ns">AI Transformation | Enterprise Strategy | Change Management</div>
+        <div class="nr"></div>
+        <div class="nsig">
+          <div class="nsl">This week's signal</div>
+          <div class="nt">Each week's highest-scoring article with strategic analysis, connecting it to the BVF, the AI Readiness Blueprint, and what it means for enterprise buyers.</div>
+        </div>
+        <div class="nsl">On the radar</div>
+        <div class="nt">Three to five additional items, ranked by relevance, each with analysis connecting to advisory frameworks.</div>
+        <div class="nsl">From to</div>
+        <div class="nt">A weekly synthesis describing the transition the week's news represents.</div>
+        <div class="nsl">The reframing question</div>
+        <div class="nt" style="font-weight:700;">One question that stops the room and reframes the week's dominant narrative.</div>
+      </div>
+      <div class="nl-desc" style="color:var(--white);">
+        <h4 style="color:var(--white);">Why this matters</h4>
+        <p style="color:var(--white); opacity:1;">Every enterprise AI infrastructure decision is influenced by thought leadership. The Transformation Brief is the content engine that positions me, and the organisations I work with, as strategic partners rather than commodity providers.</p>
+        <p style="color:var(--white); opacity:1;">The format is proven. It scores articles against a proprietary relevance framework, filters for enterprise applicability, and connects each development to practical implications for infrastructure and transformation decisions.</p>
+        <p style="color:var(--white); opacity:1;">For Leaseweb, this becomes a demand generation tool, a sales enablement resource, and a brand differentiation engine simultaneously.</p>
+        <div style="margin-top:20px;">
+          <span class="nl-tag">Demand generation</span>
+          <span class="nl-tag">Sales enablement</span>
+          <span class="nl-tag">Brand positioning</span>
+          <span class="nl-tag">Thought leadership</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PODCAST ====== -->
+<section id="podcast" class="s-light">
+  <div class="s-inner">
+    <div class="eyebrow">The Podcast</div>
+    <h2>AI Business Value Framework, executive briefings.</h2>
+    <p class="lead">Five-minute executive briefings for C-suite leaders on why AI investments fail and what to do about it. Each episode speaks directly to a specific role, CEO, CFO, CDO, CIO, CHRO, CRO, with benchmarked insights from the BVF methodology.</p>
+
+    <div style="display:flex; gap:28px; flex-wrap:wrap; align-items:flex-start;">
+      <div style="flex:1 1 400px; min-width:300px;">
+        <iframe style="border-radius:12px;" src="https://open.spotify.com/embed/show/4iJwkW4zx7q6QeYiw5CFdt?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
+      <div style="flex:1 1 300px; min-width:280px;">
+        <h4 style="color:var(--navy); font-size:16px; font-weight:700; margin-bottom:16px;">Recent episodes</h4>
+        <div style="background:var(--cream); padding:20px 24px; margin-bottom:12px; border-left:3px solid var(--orange);">
+          <div style="font-size:15px; font-weight:700; color:var(--navy); margin-bottom:4px;">Fixing the AI governance gap</div>
+          <div style="font-size:13px; color:var(--navy); opacity:.75; font-family:Georgia,serif;">CEO Briefing: If your competitors stole your entire AI governance playbook tomorrow, would it actually cost them anything?</div>
+        </div>
+        <div style="background:var(--cream); padding:20px 24px; margin-bottom:12px; border-left:3px solid var(--navy);">
+          <div style="font-size:15px; font-weight:700; color:var(--navy); margin-bottom:4px;">The real cost of ungoverned AI investment</div>
+          <div style="font-size:13px; color:var(--navy); opacity:.75; font-family:Georgia,serif;">CFO Briefing: Over-promised and under-governed. The financial case for stopping, fixing, or accelerating your AI portfolio.</div>
+        </div>
+        <p style="font-size:14px; color:var(--navy); opacity:.75; font-family:Georgia,serif; line-height:1.7; margin-top:20px;">Each episode translates the BVF methodology into role-specific language. The same framework, delivered through the lens that matters most to each executive.</p>
+        <a href="https://open.spotify.com/show/4iJwkW4zx7q6QeYiw5CFdt" target="_blank" style="display:inline-block; margin-top:16px; background:var(--navy); color:var(--white); padding:12px 28px; font-size:13px; font-weight:700; text-decoration:none;">Listen on Spotify</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== BVF ====== -->
+<section id="bvf" class="s-light">
+  <div class="s-inner">
+    <div class="eyebrow">The AI Business Value Framework</div>
+    <h2>Stop guessing. Start measuring.</h2>
+    <p class="lead">The BVF synthesises McKinsey, Gartner, BCG, Deloitte, and Forrester benchmarks into two actionable outputs: an Organisational Drag Cost and a Decision Confidence Score. Every AI initiative gets classified as Accelerate, Fix, or Stop.</p>
+
+    <div class="cards" style="margin-bottom:48px;">
+      <div class="cc">
+        <div style="font-size:40px; font-weight:700; color:var(--orange);">40%</div>
+        <h4 style="margin-top:8px;">Strategic alignment</h4>
+        <p>Alignment with board-level priorities and competitive capability</p>
+      </div>
+      <div class="cc">
+        <div style="font-size:40px; font-weight:700; color:var(--orange);">30%</div>
+        <h4 style="margin-top:8px;">Financial return</h4>
+        <p>Payback performance and ROI compared to industry benchmarks</p>
+      </div>
+      <div class="cc">
+        <div style="font-size:40px; font-weight:700; color:var(--orange);">20%</div>
+        <h4 style="margin-top:8px;">Change enablement</h4>
+        <p>Cultural and structural readiness, powered by EY/Oxford six drivers</p>
+      </div>
+      <div class="cc">
+        <div style="font-size:40px; font-weight:700; color:var(--orange);">10%</div>
+        <h4 style="margin-top:8px;">Governance and risk</h4>
+        <p>Adequacy of oversight, accountability, and regulatory compliance</p>
+      </div>
+    </div>
+
+    <div class="cards" style="margin-bottom:48px;">
+      <div class="cc cc-hl">
+        <h4>Organisational Drag Cost</h4>
+        <p>The quantified Euro value currently at risk due to structural and management constraints. This makes the status quo more expensive than the transformation, the single most powerful argument for a CFO.</p>
+      </div>
+      <div class="cc cc-hl">
+        <h4>Decision Confidence Score</h4>
+        <p>Every AI initiative receives a classification: <strong style="color:var(--orange);">Accelerate</strong> (invest now), <strong style="color:var(--navy);">Fix</strong> (address barriers first), or <strong style="color:var(--n60);">Stop</strong> (redirect resources). Data-driven, not political.</p>
+      </div>
+    </div>
+
+    <div style="background:var(--cream); padding:28px; border-left:3px solid var(--orange);">
+      <p style="font-size:16px; color:var(--navy); line-height:1.7; font-family:Georgia,serif;">"95% of GenAI pilots fail to deliver measurable P&L impact. The BVF exists to identify which 5% deserve scale, and which infrastructure decisions accelerate that journey."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== AI READINESS BLUEPRINT ====== -->
+<section id="blueprint" class="s-darker">
+  <div class="s-inner">
+    <div class="eyebrow">The AI Readiness Blueprint</div>
+    <h2>Six layers from honest diagnosis to sustained momentum.</h2>
+    <p class="lead">AI adoption is a management and structural problem, not a technical one. The Blueprint starts where most frameworks are afraid to: with an honest conversation about what is actually failing and why.</p>
+
+    <div style="margin-bottom:40px; background:var(--w05); padding:28px; border:1px solid var(--w08);">
+      <div style="font-size:11px; font-weight:700; color:var(--orange); letter-spacing:2px; text-transform:uppercase; margin-bottom:8px;">The Pace Layer Trap</div>
+      <p style="font-size:16px; color:var(--white); line-height:1.7; font-family:Georgia,serif;">Transformation failure occurs when fast-layer technology (agentic AI) is deployed into an environment where medium and slow layers are still operating on 2005-era management models. It is like putting a jet engine on a wooden sailing ship. The hull was not designed for that kind of thrust.</p>
+    </div>
+
+    <div class="layer"><div class="ln">0</div><div><h4>The trust architecture</h4><p>The foundation most frameworks skip. You cannot transform what you cannot be honest about. Requires psychological safety, external facilitation, and an executive honesty session.</p></div></div>
+    <div class="layer"><div class="ln">1</div><div><h4>Quantifying organisational drag (the BVF)</h4><p>Make the status quo more expensive than the transformation. The four-pillar assessment produces the Organisational Drag Cost and Decision Confidence Score.</p></div></div>
+    <div class="layer"><div class="ln">2</div><div><h4>Build the human coalition</h4><p>Transformation travels through relationships, not org charts. The Influence Map methodology identifies the 12 key people who determine adoption, regardless of title.</p></div></div>
+    <div class="layer"><div class="ln">3</div><div><h4>Redesign the architecture</h4><p>Align decision architecture, performance metrics, role evolution, and governance cadence with AI speed. Quarterly cycles are obsolete when agentic AI evolves monthly.</p></div></div>
+    <div class="layer"><div class="ln">4</div><div><h4>Move every individual (ADKAR)</h4><p>Desire before Knowledge. Investing in AI training before securing buy-in is wasted capital expenditure. Middle management gets a dedicated ADKAR track.</p></div></div>
+    <div class="layer"><div class="ln">5</div><div><h4>Sustain the momentum</h4><p>AI transformation is not a project, it is a permanent operating rhythm. Monthly portfolio reviews, quarterly health checks, annual strategic redesign.</p></div></div>
+  </div>
+</section>
+
+<!-- ====== LEASEWEB DIVIDER ====== -->
+<div class="sdiv">Case study: Leaseweb global AI GTM strategy</div>
+
+<!-- ====== LEASEWEB VISION ====== -->
+<section id="leaseweb" class="s-light">
+  <div class="s-inner">
+    <div class="eyebrow">Leaseweb AI GTM strategy</div>
+    <h2>Enterprise AI is at an inflection point.</h2>
+    <p class="lead">The infrastructure decision is becoming as strategic as the AI model choice itself. Enterprises are discovering that hyperscaler lock-in, unpredictable costs, and data sovereignty concerns are the hidden barriers preventing AI from moving beyond pilot.</p>
+
+    <div class="cards">
+      <div class="cc cc-hl">
+        <h4>Cloud repatriation</h4>
+        <p>Enterprises pulling AI workloads off hyperscalers due to economics that do not work at scale, especially for training and high-throughput inference.</p>
+      </div>
+      <div class="cc cc-hl">
+        <h4>Sovereign infrastructure demand</h4>
+        <p>EU AI Act and GDPR making data residency a board-level decision. European-headquartered infrastructure is a competitive advantage.</p>
+      </div>
+      <div class="cc cc-hl">
+        <h4>The expertise gap</h4>
+        <p>GPU availability is improving, but the advisory gap is widening. Enterprises need partners who understand workload configuration, not just hardware vendors.</p>
+      </div>
+    </div>
+
+    <div class="stats" style="margin-top:64px;">
+      <div class="stat"><div class="sn">95%</div><div class="sl sl-l">GenAI pilots fail to deliver P&L impact</div></div>
+      <div class="stat"><div class="sn">30-50%</div><div class="sl sl-l">Cost savings vs hyperscalers</div></div>
+      <div class="stat"><div class="sn">74%</div><div class="sl sl-l">See no tangible AI value</div></div>
+      <div class="stat"><div class="sn">42%</div><div class="sl sl-l">Have abandoned most AI initiatives</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== MARKET ====== -->
+<div class="s-dark">
+  <div class="s-inner">
+    <div class="eyebrow">Market opportunity</div>
+    <h2>Three target segments where Leaseweb wins.</h2>
+    <p class="lead">Focused on enterprises where cost transparency, EU sovereignty, and bare metal performance create the strongest value proposition.</p>
+
+    <div class="cards" style="margin-bottom:48px;">
+      <div class="dc">
+        <h3>AI-native scale-ups</h3>
+        <p style="margin-bottom:16px;">Companies with proven AI workloads that have outgrown hyperscaler economics.</p>
+        <div class="sb"><div class="sl-o">Pain point</div><div class="st">Cloud bill shock: unpredictable costs that make CFO approval impossible for scaling.</div></div>
+        <div class="sb"><div class="sl-m">Leaseweb value</div><div class="st">Transparent pricing, 30-50% savings, dedicated bare metal with no noisy neighbours.</div></div>
+      </div>
+      <div class="dc">
+        <h3>Regulated enterprise AI</h3>
+        <p style="margin-bottom:16px;">Healthcare, financial services, and government where data sovereignty is mandatory.</p>
+        <div class="sb"><div class="sl-o">Pain point</div><div class="st">EU AI Act compliance that hyperscalers cannot fully address from US-headquartered infrastructure.</div></div>
+        <div class="sb"><div class="sl-m">Leaseweb value</div><div class="st">European-headquartered, full GDPR compliance, sovereign cloud within EU borders.</div></div>
+      </div>
+      <div class="dc">
+        <h3>Media and entertainment</h3>
+        <p style="margin-bottom:16px;">GPU-intensive rendering, generative content, and video processing at scale.</p>
+        <div class="sb"><div class="sl-o">Pain point</div><div class="st">Need burst GPU capacity for production deadlines without long-term hyperscaler commitments.</div></div>
+        <div class="sb"><div class="sl-m">Leaseweb value</div><div class="st">Rapid deployment (hours not weeks), flexible commitment models, dedicated GPU performance.</div></div>
+      </div>
+    </div>
+
+    <div class="eyebrow-muted">Competitive positioning</div>
+    <div style="overflow-x:auto;">
+      <table class="ctbl">
+        <thead><tr><th></th><th>Leaseweb</th><th>Hyperscalers</th><th>CoreWeave</th><th>Hetzner</th></tr></thead>
+        <tbody>
+          <tr><td>Cost transparency</td><td>&#9733;&#9733;&#9733;&#9733;&#9733;</td><td>&#9733;&#9733;&#9734;&#9734;&#9734;</td><td>&#9733;&#9733;&#9733;&#9734;&#9734;</td><td>&#9733;&#9733;&#9733;&#9733;&#9733;</td></tr>
+          <tr><td>EU data sovereignty</td><td>&#9733;&#9733;&#9733;&#9733;&#9733;</td><td>&#9733;&#9733;&#9733;&#9734;&#9734;</td><td>&#9733;&#9734;&#9734;&#9734;&#9734;</td><td>&#9733;&#9733;&#9733;&#9733;&#9734;</td></tr>
+          <tr><td>GPU range (L4 to H100)</td><td>&#9733;&#9733;&#9733;&#9733;&#9734;</td><td>&#9733;&#9733;&#9733;&#9733;&#9733;</td><td>&#9733;&#9733;&#9733;&#9733;&#9733;</td><td>&#9733;&#9733;&#9733;&#9734;&#9734;</td></tr>
+          <tr><td>Enterprise support</td><td>&#9733;&#9733;&#9733;&#9733;&#9734;</td><td>&#9733;&#9733;&#9733;&#9733;&#9733;</td><td>&#9733;&#9733;&#9733;&#9734;&#9734;</td><td>&#9733;&#9733;&#9734;&#9734;&#9734;</td></tr>
+          <tr><td>Bare metal performance</td><td>&#9733;&#9733;&#9733;&#9733;&#9733;</td><td>&#9733;&#9733;&#9733;&#9734;&#9734;</td><td>&#9733;&#9733;&#9733;&#9733;&#9734;</td><td>&#9733;&#9733;&#9733;&#9733;&#9733;</td></tr>
+          <tr><td>No lock-in</td><td>&#9733;&#9733;&#9733;&#9733;&#9733;</td><td>&#9733;&#9733;&#9734;&#9734;&#9734;</td><td>&#9733;&#9733;&#9733;&#9734;&#9734;</td><td>&#9733;&#9733;&#9733;&#9733;&#9734;</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ====== GTM PHASES ====== -->
+<div class="s-light">
+  <div class="s-inner">
+    <div class="eyebrow">Go-to-market strategy</div>
+    <h2>From deep market understanding to scalable commercial execution.</h2>
+    <p class="lead">A three-phase approach that builds the foundation before scaling the engine.</p>
+
+    <div class="cards">
+      <div class="cc">
+        <div style="font-size:11px; font-weight:700; color:var(--orange); letter-spacing:2px; text-transform:uppercase; margin-bottom:12px;">Phase 1</div>
+        <h3>Foundation</h3>
+        <div class="period">Months 1 to 3</div>
+        <ul>
+          <li>Deep immersion: current AI customer base, win/loss analysis, technical portfolio mastery</li>
+          <li>Define ideal customer profiles by segment and region</li>
+          <li>Build competitive battlecards and objection handling playbooks</li>
+          <li>Map the NVIDIA and ecosystem partner landscape</li>
+          <li>Establish relationships with regional sales teams across EU, US, APAC</li>
+        </ul>
+      </div>
+      <div class="cc">
+        <div style="font-size:11px; font-weight:700; color:var(--orange); letter-spacing:2px; text-transform:uppercase; margin-bottom:12px;">Phase 2</div>
+        <h3>Pipeline engine</h3>
+        <div class="period">Months 3 to 6</div>
+        <ul>
+          <li>Target account identification: firmographic + technographic + intent signals</li>
+          <li>NVIDIA co-selling programme: joint lead generation, events, GTC presence</li>
+          <li>Content-led demand gen: TCO comparisons, repatriation case studies, thought leadership</li>
+          <li>Regional sales enablement: AI-specific playbooks for every market</li>
+          <li>Launch targeted outreach to high-value AI infrastructure prospects</li>
+        </ul>
+      </div>
+      <div class="cc">
+        <div style="font-size:11px; font-weight:700; color:var(--orange); letter-spacing:2px; text-transform:uppercase; margin-bottom:12px;">Phase 3</div>
+        <h3>Scale</h3>
+        <div class="period">Months 6 to 12</div>
+        <ul>
+          <li>Land-and-expand: prove value with first workload, then migrate additional AI applications</li>
+          <li>Strategic account programme: top 20 AI customers with quarterly business reviews</li>
+          <li>Ecosystem expansion: ISVs, AI platforms, MLOps providers, consulting firms</li>
+          <li>Measurement: pipeline value, conversion, deal size, expansion revenue, net retention</li>
+          <li>Feed market intelligence back into product roadmap and portfolio decisions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== REFRAME QUOTE ====== -->
+<div class="s-darker" style="padding:60px 48px;">
+  <div class="s-inner">
+    <div class="qb">
+      <p>"Is Leaseweb building a GPU rental business, or is it building an AI infrastructure advisory practice that monetises through compute? The answer determines whether we compete on price or on value."</p>
+    </div>
+  </div>
+</div>
+
+<!-- ====== CLIENT CONVERSATIONS ====== -->
+<div class="s-light">
+  <div class="s-inner">
+    <div class="eyebrow">Client conversations</div>
+    <h2>Deep Q&A for enterprise AI buyers.</h2>
+    <p class="lead">The real questions enterprise buyers ask, and the answers that position Leaseweb as a trusted infrastructure partner. Each answer ends with a reframing question.</p>
+
+    <div class="acc acc-l">
+      <button class="acc-btn acc-btn-l" onclick="tog(this)"><span>"Why should we move our AI workloads off AWS/Azure/GCP?"</span><span class="tg">&minus;</span></button>
+      <div class="acc-body acc-body-l open">
+        <p><strong>The honest answer is: maybe you should not.</strong> If your workloads are tightly integrated into a hyperscaler ecosystem and the economics work at your current scale, migration creates risk without sufficient reward.</p>
+        <p>But here is what we see in practice. When enterprises scale AI from pilot to production, three things happen simultaneously: costs become unpredictable, performance becomes inconsistent due to shared infrastructure, and data sovereignty becomes a board-level concern.</p>
+        <p>Leaseweb's bare metal GPU servers typically deliver 30 to 50% cost savings for predictable, high-throughput AI workloads.</p>
+        <p class="rf">Reframing question: "What would it mean for your AI roadmap if your infrastructure costs were predictable enough for the CFO to approve the next three projects today?"</p>
+      </div>
+    </div>
+    <div class="acc acc-l">
+      <button class="acc-btn acc-btn-l" onclick="tog(this)"><span>"How do you handle data sovereignty and EU AI Act compliance?"</span><span class="tg">+</span></button>
+      <div class="acc-body acc-body-l">
+        <p>Leaseweb is European-headquartered, founded in Amsterdam in 1997. Our data centres across Europe operate under EU jurisdiction, which means your data stays within EU borders by design, not by workaround.</p>
+        <p>For organisations navigating the EU AI Act, this matters because the regulation requires transparency about where AI models are trained and where data is processed. Leaseweb removes that complexity entirely.</p>
+        <p class="rf">Reframing question: "If your regulator asked today where your AI training data is physically located and under whose jurisdiction, could you answer confidently in under 60 seconds?"</p>
+      </div>
+    </div>
+    <div class="acc acc-l">
+      <button class="acc-btn acc-btn-l" onclick="tog(this)"><span>"What GPU options do you offer, and how do we choose?"</span><span class="tg">+</span></button>
+      <div class="acc-body acc-body-l">
+        <p>We offer NVIDIA L4, L40S, and H100 NVL GPUs, available globally as dedicated servers, with L4 also available in our Public Cloud for flexible workloads.</p>
+        <p>The choice depends on your workload profile, not your aspiration. The L4 is optimised for inference. The L40S handles heavier mixed workloads. The H100 NVL is for large-scale model training. Most enterprises over-specify initially.</p>
+        <p class="rf">Reframing question: "Are you buying GPU capacity for what you need today, or for what you think you might need in 18 months? Because one of those approaches is strategic, and the other is expensive."</p>
+      </div>
+    </div>
+    <div class="acc acc-l">
+      <button class="acc-btn acc-btn-l" onclick="tog(this)"><span>"We are concerned about vendor lock-in."</span><span class="tg">+</span></button>
+      <div class="acc-body acc-body-l">
+        <p>Leaseweb provides standard infrastructure, standard APIs, and transparent pricing with no proprietary lock-in mechanisms. Your AI workloads run on standard NVIDIA GPUs with standard drivers.</p>
+        <p>Our model is simple: we earn your business every month by delivering performance, reliability, and value. Not by making it expensive to leave.</p>
+        <p class="rf">Reframing question: "What is the switching cost if your current provider raises prices by 30% next year? That number is your lock-in premium."</p>
+      </div>
+    </div>
+    <div class="acc acc-l">
+      <button class="acc-btn acc-btn-l" onclick="tog(this)"><span>"Can you support us as we scale from pilot to production?"</span><span class="tg">+</span></button>
+      <div class="acc-body acc-body-l">
+        <p>This is where the real partnership begins. Scaling from pilot to production is where 95% of enterprise AI projects fail, according to MIT research. The infrastructure is rarely the root cause, it is typically governance, cost predictability, and the confidence to commit.</p>
+        <p>Start with a single GPU server to validate. Once validated, scale to a dedicated cluster. We provide technical consultation throughout, plus quarterly business reviews and proactive capacity planning.</p>
+        <p class="rf">Reframing question: "You have proven the AI model works. The question now is whether your infrastructure can scale at the speed your business needs."</p>
+      </div>
+    </div>
+    <div class="acc acc-l">
+      <button class="acc-btn acc-btn-l" onclick="tog(this)"><span>"What makes Leaseweb different from CoreWeave or OVHcloud?"</span><span class="tg">+</span></button>
+      <div class="acc-body acc-body-l">
+        <p>CoreWeave is GPU-native and Kubernetes-first, but US-centric with limited European presence and heavily VC-funded. OVHcloud is a strong European player, but their AI-specific focus is less developed.</p>
+        <p>Leaseweb combines European sovereignty, a 25-year track record, a dedicated AI infrastructure portfolio (L4, L40S, H100), global reach across EU, US, and APAC, and hybrid flexibility.</p>
+        <p class="rf">Reframing question: "Which matters most to your organisation right now: sovereign data residency, GPU-native architecture, or a 25-year infrastructure partner you can bet your production workloads on?"</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ====== ABOUT CRAIG ====== -->
+<section id="credentials" class="s-dark">
+  <div class="s-inner">
+    <div class="eyebrow">About Craig Horton</div>
+    <h2>20 years building enterprise technology businesses.</h2>
+    <p class="lead">I know how enterprises buy infrastructure, because I have been the person selling it to them at HPE, Microsoft, Salesforce, and Atos. I know how vendors structure deals, where the hidden costs sit, and what makes a customer trust you enough to give you their most critical workloads.</p>
+
+    <div class="stats" style="margin-bottom:48px;">
+      <div class="stat"><div class="sn">EUR 300M</div><div class="sl sl-d">EBITDA uplift at Salesforce</div></div>
+      <div class="stat"><div class="sn">60%</div><div class="sl sl-d">Revenue growth at Microsoft</div></div>
+      <div class="stat"><div class="sn">$100M+</div><div class="sl sl-d">Account revitalisation at HPE</div></div>
+      <div class="stat"><div class="sn">2 Quarters</div><div class="sl sl-d">Atos turnaround to reference</div></div>
+    </div>
+
+    <div class="cred-row">
+      <div class="cred cred-hl">
+        <div class="cl" style="color:var(--orange);">Starting May 2026</div>
+        <h4>Executive global MBA with artificial intelligence</h4>
+        <div class="cs">University of Hertfordshire, 24 months</div>
+        <div class="cd">A deliberate strategic investment combining business strategy with applied AI, at the exact intersection where enterprise transformation lives.</div>
+      </div>
+      <div class="cred cred-nm">
+        <div class="cl" style="color:var(--white);">Distinction: 99.5%</div>
+        <h4>Oxford executive leadership programme</h4>
+        <div class="cs">Oxford Said Business School</div>
+        <div class="cd">Focused on transformation leadership and the six drivers that determine whether organisational transformation succeeds or fails.</div>
+      </div>
+    </div>
+
+    <div class="mini">
+      <div class="mc"><div class="mv">20+</div><div class="ml">AI and GenAI certifications</div></div>
+      <div class="mc"><div class="mv">AWS</div><div class="ml">Cloud Economics certified</div></div>
+      <div class="mc"><div class="mv">GCP</div><div class="ml">Google Cloud credentials</div></div>
+      <div class="mc"><div class="mv">BVF</div><div class="ml">AI Business Value Framework (built by Craig)</div></div>
+    </div>
+
+    <div class="res">
+      <h4>The resilience foundation</h4>
+      <p>In 2014, I suffered a cardiac arrest and was resuscitated. Since then, I have completed six desert ultramarathons including four finishes of the Marathon des Sables, one of the toughest footraces on earth, and received the "Never Give Up" award in 2025. Building a new AI business development function is a marathon, not a sprint. I know what it takes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== STRATEGIC QUESTIONS ====== -->
+<section id="questions" class="s-light">
+  <div class="s-inner">
+    <div class="eyebrow">Strategic questions</div>
+    <h2>The questions that reframe the conversation.</h2>
+    <p class="lead">Every great strategic decision starts with a question that stops the room.</p>
+
+    <div style="margin-bottom:40px;">
+      <div class="qc">For the business</div>
+      <div class="qi qi-o">"Is Leaseweb building a GPU rental business, or an AI infrastructure advisory practice that happens to monetise through compute?"</div>
+      <div class="qi qi-o">"If cloud repatriation is accelerating, are we positioned to capture enterprise workloads, or are we waiting for them to find us?"</div>
+      <div class="qi qi-o">"What would it take to make Leaseweb the first name European CTOs think of when they plan their AI infrastructure strategy?"</div>
+    </div>
+    <div style="margin-bottom:40px;">
+      <div class="qc">For customers</div>
+      <div class="qi qi-n">"What would it mean for your AI roadmap if your infrastructure costs were predictable enough for the CFO to approve the next three projects today?"</div>
+      <div class="qi qi-n">"You have proven the AI model works. Is your infrastructure ready to scale at the speed your business needs?"</div>
+      <div class="qi qi-n">"If your regulator asked today where your AI training data is physically located, could you answer in under 60 seconds?"</div>
+    </div>
+    <div style="margin-bottom:40px;">
+      <div class="qc">For the market</div>
+      <div class="qi qi-m">"Most AI infrastructure providers compete on GPU specifications and price per hour. But enterprises do not buy infrastructure, they buy outcomes. Who is going to own that conversation?"</div>
+      <div class="qi qi-m">"Sovereign AI infrastructure is becoming a regulatory requirement, not a preference. Which European provider will be the trusted partner for the next decade?"</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CTA ====== -->
+<div class="cta">
+  <div class="s-inner">
+    <h3>Craig Horton</h3>
+    <p>craigmds1@gmail.com</p>
+    <p>Amsterdam, Netherlands</p>
+    <div class="cq">"From selling infrastructure for others, to building the AI infrastructure business that enterprises need."</div>
+  </div>
+</div>
+
+<!-- ====== FOOTER ====== -->
+<div class="footer">
+  <p>&copy; 2026 Craig Horton Advisory &nbsp;|&nbsp; AI Transformation Strategy &nbsp;|&nbsp; Amsterdam</p>
+</div>
+
+<script>
+function tog(btn){
+  var body=btn.nextElementSibling,tg=btn.querySelector('.tg'),isOpen=body.classList.contains('open');
+  document.querySelectorAll('.acc-body').forEach(function(b){b.classList.remove('open');});
+  document.querySelectorAll('.acc-btn .tg').forEach(function(t){t.textContent='+';});
+  if(!isOpen){body.classList.add('open');tg.textContent='\u2212';}
+}
+document.querySelectorAll('.nav-links a').forEach(function(link){
+  link.addEventListener('click',function(e){
+    e.preventDefault();
+    var t=document.querySelector(this.getAttribute('href'));
+    if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+    document.querySelectorAll('.nav-links a').forEach(function(a){a.classList.remove('active');});
+    this.classList.add('active');
+  });
+});
+window.addEventListener('scroll',function(){
+  var sections=document.querySelectorAll('section[id]'),current='';
+  sections.forEach(function(s){if(window.scrollY>=s.offsetTop-100) current=s.id;});
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    a.classList.remove('active');
+    if(a.getAttribute('href')==='#'+current) a.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
